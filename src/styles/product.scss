@@ -46,5 +46,22 @@
       justify-content: space-between;
       align-items: center;
     }
+
+    &_button {
+      outline: none;
+      border: none;
+      background-color: inherit;
+
+    }
   }
 }
+
+.bi-basket {
+  color: black;
+  font-size: 2.5rem;
+
+  &:hover {
+    color: red;
+  }
+}
+

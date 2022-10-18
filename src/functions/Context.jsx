@@ -13,6 +13,7 @@ const initialValue = {
       isLogin: false,
     },
   ],
+  cart: [],
 };
 
 function reducer(state, action) {
@@ -28,16 +29,40 @@ function reducer(state, action) {
           else return ele;
         }),
       };
+    case "ADD_TO_CART":
+      if (
+        state.cart.filter((ele) => ele.name === action.payload.name).length < 1
+      ) {
+        return { ...state, cart: [...state.cart, action.payload] };
+      } else {
+        return {
+          ...state,
+          cart: state.cart.map((ele) => {
+            if (ele.name === action.payload.name)
+              return { ...ele, count: ele.count + 1 };
+            else return ele;
+          }),
+        };
+      }
+    case "REMOVE_FROM_CART":
+      return {
+        ...state,
+        cart: state.cart.map((ele) => {
+          if (ele.name === action.payload.name)
+            return { ...ele, count: ele.count===0 ? ele.count : ele.count -1 };
+          else return ele;
+        }),
+      };
     default:
       return state;
   }
 }
 
 function Context({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialValue);
+  const [userState, dispatchUserState] = useReducer(reducer, initialValue);
 
   return (
-    <dataContext.Provider value={{ state, dispatch }}>
+    <dataContext.Provider value={{ userState, dispatchUserState }}>
       {children}
     </dataContext.Provider>
   );

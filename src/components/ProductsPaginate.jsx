@@ -7,7 +7,7 @@ function ProductsPaginate() {
 
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage, setPostPerPage] = useState(10);
+    const [productPerPage, setProductPerPage] = useState(10);
 
     const options = {
         method: 'GET',
@@ -30,9 +30,20 @@ function ProductsPaginate() {
         },
         []
       );
-
-  return (
-    <Product state={state} loading={loading} />
+     
+      // Get current product
+      const indexOfLastProduct = currentPage * productPerPage;
+      const indexOfFirstProduct = indexOfLastProduct - productPerPage;
+      let currentProduct = null;
+      {state? (
+        currentProduct = state.results.slice(indexOfFirstProduct, indexOfLastProduct)): null}
+      
+     
+  return 
+  (
+    <div></div>
+    //  <Product state={currentProduct} loading={loading}/>
+      
   )
 }
 

@@ -4,6 +4,9 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Dropdown from "react-bootstrap/Dropdown";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import { Route, Link } from "react-router-dom";
 
 
@@ -12,39 +15,60 @@ function NavBar() {
     <Navbar bg="light" expand="lg">
       <Container fluid>
         <Navbar.Toggle aria-controls="navbarScroll" />
+
+        {/* Home Button */}
+
         <Navbar.Brand>
-          <Link to="/">Home</Link>
+          <Link className="nav-list-item" to="/">
+            H & M
+          </Link>
         </Navbar.Brand>
         <div className="d-flex">
-          <button type="button" className="btn btn-light btn-lg">
-            <Link to="/Registration">
+          {/* Products Dropdown */}
+
+          <DropdownButton
+            className="drop-down-button"
+            id="dropdown-basic-button"
+            variant="light"
+            size="md"
+            title="Products"
+          >
+            <Dropdown.Item>
+              <Link className="nav-list-item" to="/Product">
+                Men's
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link className="nav-list-item" to="/Product">
+                Women's
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link className="nav-list-item" to="/Product">
+                Children's
+              </Link>
+            </Dropdown.Item>
+          </DropdownButton>
+
+          {/* User Account */}
+
+          <Button variant="light" size="lg">
+            <Link className="nav-list-item" to="/Registration">
               <i className="bi bi-person"></i>
             </Link>
-          </button>
-          <div className="dropdown">
-            <button
-              type="button"
-              className="btn btn-light dropdown-toggle btn-lg"
-              data-toggle="dropdown"
-            >
-              <i className="bi bi-basket"></i>
-            </button>
-            <div className="dropdown-menu">
-              <a className="dropdown-item" href="#">
-                Option A
-              </a>
-              <a className="dropdown-item" href="#">
-                Option B
-              </a>
-              <a className="dropdown-item" href="#">
-                Option C
-              </a>
-              <a className="dropdown-item" href="#">
-                Option D
-              </a>
-            </div>
-          </div>
+          </Button>
+
+          {/* Shopping Cart */}
+
+          <Button variant="light">
+            <Link className="nav-list-item" to="/ShoppingCart">
+              <i className="bi bi-basket basket-icon-nav-bar"></i>
+            </Link>
+          </Button>
         </div>
+
+        {/* Search Bar */}
+
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
@@ -58,7 +82,9 @@ function NavBar() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="light">
+              <i className="bi bi-search"></i>
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>

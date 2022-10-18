@@ -9,24 +9,32 @@ import NavBar from "./components/main-page/NavBar";
 import CoverPhoto from "./components/main-page/CoverPhoto";
 import Payment from "./components/purchases/Payment";
 import Context from "./functions/Context";
+import Product from "./components/Product";
+import CartCardComponent from "./components/purchases/CartCardComponent";
+import FetchContext from "./functions/fetchContext";
 
 
 function App() {
   return (
     <Context>
-      <BrowserRouter>
-        <div className="App">
-          <NavBar />
-          <Routes>
-            {/* <Route path="/" element={<Login />} /> */}
-            {/* <Route path="/login" element={<Login />} /> */}
-            <Route path="/registration" element={<Registration />} />
-            <Route path="/home" element={<CoverPhoto />} />
-          </Routes>
+      <FetchContext>
+        <BrowserRouter>
+          <div className="App">
+            <NavBar />
+            {/* <CartCardComponent /> */}
+            <CoverPhoto />
+            {/* <Product /> */}
 
-          {/* <ProductsPaginate /> */}
-        </div>
-      </BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/" element={<Registration />} />
+              {/* <Route path="/" element={<CoverPhoto />} /> */}
+              <Route path="/Product" element={<Product />} />
+              <Route path="/ShoppingCart" element={<CartCardComponent />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </FetchContext>
     </Context>
   );
 }
