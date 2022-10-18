@@ -54,21 +54,25 @@ function NavBar() {
           </DropdownButton>
 
           {/* User Account */}
-
-          <Button variant="light" size="lg">
-            <Link className="nav-list-item" to="/Registration">
-              <i className="bi bi-person"></i>
-            </Link>
-          </Button>
+          {userState.users[0].isLogin ? (
+            <Button variant="light" size="lg">
+              <Link className="nav-list-item" to="/userinfo">
+                <i class="bi bi-person-check-fill"></i>
+              </Link>
+            </Button>
+          ) : (
+            <Button variant="light" size="lg">
+              <Link className="nav-list-item" to="/registration">
+                <i class="bi bi-person"></i>
+              </Link>
+            </Button>
+          )}
 
           {/* Shopping Cart */}
 
           <Button variant="light">
             <Link className="nav-list-item" to="/ShoppingCart">
               <i className="bi bi-basket basket-icon-nav-bar"></i>
-              {/* 
-                {userState.cart.length==0? null : {userState.cart.length}}
-              */}
               <span
                 ref={basketRef}
                 className={

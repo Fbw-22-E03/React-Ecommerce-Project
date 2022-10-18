@@ -10,7 +10,7 @@ const initialValue = {
       passwordTwo: "password1234",
       accept: false,
       newsletter: false,
-      isLogin: true,
+      isLogin: false,
     },
   ],
   cart: [],

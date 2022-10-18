@@ -11,11 +11,11 @@ function Product() {
   const { userState, dispatchUserState } = useContext(dataContext);
 
   const options = {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'X-RapidAPI-Key': 'f0795b8e80mshc05e0a4abcdbd82p1b100ajsn97cb4c242de9',
-      'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com'
-    }
+      "X-RapidAPI-Key": "f0795b8e80mshc05e0a4abcdbd82p1b100ajsn97cb4c242de9",
+      "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
+    },
   };
 
   useEffect(
@@ -40,7 +40,12 @@ function Product() {
   }
 
   if (loading) {
-    return <h2>Loading...</h2>;
+    // return <h2>Loading...</h2>;
+    return (
+      <div class="spinner-border m-5" role="status">
+        <span class="sr-only"></span>
+      </div>
+    );
   }
   return (
     <div className="products_container">
