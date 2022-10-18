@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Route, Link } from "react-router-dom";
 
+
 function NavBar() {
   return (
     <Navbar bg="light" expand="lg">

@@ -9,6 +9,7 @@ import NavBar from "./components/main-page/NavBar";
 import CoverPhoto from "./components/main-page/CoverPhoto";
 import Payment from "./components/purchases/Payment";
 
+
 function App() {
   return (
     <Context>
