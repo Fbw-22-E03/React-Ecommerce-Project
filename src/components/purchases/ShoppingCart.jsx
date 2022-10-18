@@ -9,13 +9,20 @@ import Table from "react-bootstrap/Table";
 import CartCardComponent from "./CartCardComponent";
 
 function ShoppingCart() {
+  const { userState, dispatchUserState } = useContext(dataContext);
   // Empty Cart Message
   // if (isEmpty) return <h5 className="empty-message">My Cart is Empty.</h5>;
 
-  const totalPrice = cartCardComponent.reduce(
-    (totalPrice, item) => totalPrice + item.price,
-    0
-  );
+  // const totalPrice = userState.cart.reduce(
+  //   (prev, next) => prev.count * prev.price + next.count * next.price,
+  //   0
+  // );
+
+  let sum = 0;
+  const calc = useState.cart.forEach((ele) => {
+    return (sum += ele.price);
+  });
+  console.log(calc);
 
   return (
     // Main Container
@@ -32,7 +39,16 @@ function ShoppingCart() {
           <div className="cart-items">
             <CartCardComponent />
           </div>
-          <div>Total Price: {totalPrice}</div>
+          <div>
+            Total Price:{" "}
+            {userState.cart.length > 0
+              ? userState.cart.reduce(
+                  (prev, next) =>
+                    prev.count * prev.price + next.count * next.price,
+                  0
+                )
+              : 0}
+          </div>
         </Col>
       </Row>
     </Container>
