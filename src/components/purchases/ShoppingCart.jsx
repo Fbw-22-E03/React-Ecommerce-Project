@@ -18,11 +18,11 @@ function ShoppingCart() {
   //   0
   // );
 
-  let sum = 0;
-  const calc = useState.cart.forEach((ele) => {
-    return (sum += ele.price);
-  });
-  console.log(calc);
+  const summedUp = useState.cart.reduce(
+    (accumulator, current) => accumulator + current.price,
+    0
+  );
+  console.log(summedUp);
 
   return (
     // Main Container
@@ -39,16 +39,7 @@ function ShoppingCart() {
           <div className="cart-items">
             <CartCardComponent />
           </div>
-          <div>
-            Total Price:{" "}
-            {userState.cart.length > 0
-              ? userState.cart.reduce(
-                  (prev, next) =>
-                    prev.count * prev.price + next.count * next.price,
-                  0
-                )
-              : 0}
-          </div>
+          <div>Total Price: {userState.cart.length > 0 ? summedUp : 0}</div>
         </Col>
       </Row>
     </Container>

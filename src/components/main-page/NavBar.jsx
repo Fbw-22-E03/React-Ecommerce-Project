@@ -57,13 +57,13 @@ function NavBar() {
           {userState.users[0].isLogin ? (
             <Button variant="light" size="lg">
               <Link className="nav-list-item" to="/userinfo">
-                <i class="bi bi-person-check-fill"></i>
+                <i className="bi bi-person-check-fill"></i>
               </Link>
             </Button>
           ) : (
             <Button variant="light" size="lg">
               <Link className="nav-list-item" to="/registration">
-                <i class="bi bi-person"></i>
+                <i className="bi bi-person"></i>
               </Link>
             </Button>
           )}
