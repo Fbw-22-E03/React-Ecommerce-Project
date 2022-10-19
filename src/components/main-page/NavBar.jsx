@@ -53,6 +53,7 @@ function NavBar() {
           {/* Products Dropdown */}
 
           <DropdownButton
+            style={{ borderRadius: "0" }}
             className="drop-down-button"
             id="dropdown-basic-button"
             variant="light"
@@ -83,6 +84,7 @@ function NavBar() {
 
           {userState.users[0].isLogin ? (
             <DropdownButton
+              style={{ borderRadius: "0" }}
               className="drop-down-button"
               id="dropdown-basic-button"
               variant="light"
@@ -122,7 +124,10 @@ function NavBar() {
 
           {/* Shopping Cart */}
           <Link className="nav-list-item" to="/ShoppingCart">
-            <Button variant="btn-outline-light">
+            <Button
+              class="shopping_button"
+              variant="btn-outline-light rounded-0"
+            >
               <i className="bi bi-basket basket-icon-nav-bar"></i>
               <span
                 ref={basketRef}

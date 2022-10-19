@@ -21,6 +21,11 @@ function reducer(state, action) {
   switch (action.type) {
     case "SUBMIT_USER":
       return { ...state, users: [action.payload] };
+      case "CHANGE_PASSWORD":
+        return { ...state, users:state.users.map((ele) => {
+          if (ele.password === action.payload.oldPassword ) return { ...ele, password: action.payload.newPassword, passwordTwo: action.payload.newPassword };
+          else return ele;
+        }), };
     case "IS_LOGIN":
       return {
         ...state,
