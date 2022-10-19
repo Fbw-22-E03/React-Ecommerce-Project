@@ -17,13 +17,14 @@ import ShoppingCart from "./components/purchases/ShoppingCart";
 import Footer from "./components/main-page/Footer";
 import UserInfo from "./components/user/UserInfo";
 import Home from "./components/main-page/Home";
+import LogoutSuccessPage from "./components/user/LogoutSuccessPage";
 
 function App() {
   return (
     <Context>
       <FetchContext>
         <BrowserRouter>
-          <div className="container-fluid" style={{marginTop: "100px"}}>
+          <div className="container-fluid" style={{ marginTop: "100px" }}>
             <NavBar />
             <Routes>
               <Route path="/" element={<Home />} />
@@ -32,6 +33,10 @@ function App() {
               <Route path="/Registration" element={<Registration />} />
               <Route path="/Product" element={<Product />} />
               <Route path="/ShoppingCart" element={<ShoppingCart />} />
+              <Route
+                path="/LogoutSuccessPage"
+                element={<LogoutSuccessPage />}
+              />
             </Routes>
             <Footer />
           </div>

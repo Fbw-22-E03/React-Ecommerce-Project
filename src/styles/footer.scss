@@ -1,13 +1,14 @@
-
-.footer-container {
-  text-align: center;
-}
-.align-items {
-  align-items: baseline;
-  col {
-    text-align: left;
+body {
+  .footer-container {
+    text-align: center;
   }
-}
-.icon-size-footer {
-  font-size: 1.3rem;
+  .align-items {
+    align-items: baseline;
+    col {
+      text-align: left;
+    }
+  }
+  .icon-size-footer {
+    font-size: 1.3rem;
+  }
 }

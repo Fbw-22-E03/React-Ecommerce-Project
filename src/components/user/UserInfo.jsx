@@ -9,6 +9,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 2rem;
+  width: 50vw;
+  margin: auto;
+  border: solid 1px;
+  padding: 1.2rem;
 `;
 
 function UserInfo() {
@@ -17,18 +21,23 @@ function UserInfo() {
 
   const logOut = () => {
     dispatchUserState({ type: "IS_LOGOUT" });
-    navigate("/");
+    navigate("/LogoutSuccessPage");
   };
   return (
     <div>
       <Wrapper>
-        <p>email: {userState.users[0].email}</p>
+        <img
+          className="img-styles-user-info"
+          src="https://s1.reutersmedia.net/resources/r/?m=02&d=20110106&t=2&i=297909111&w=780&fh=&fw=&ll=&pl=&sq=&r=2011-01-06T234808Z_01_BTRE7051U4200_RTROPTP_0_USA"
+          alt=""
+        />
+        <p class="email-text-user-info">email: {userState.users[0].email}</p>
         <div className="button-container-user-info">
           <button
             className="btn btn-outline-dark button-styling-user-info btn-out"
             onClick={logOut}
           >
-            log out
+            Log Out
           </button>
           <button
             className="btn btn-outline-dark button-styling-user-info"
