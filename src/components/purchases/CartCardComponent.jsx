@@ -11,12 +11,12 @@ function CartCardComponent() {
     return (
       <div className="product_contain cart-items">
         {userState.cart.map((ele) => (
-          <div key={ele.name} className="card mb-3 item_border">
-            <div className="row g-0">
+          <div key={ele.name} className="card mb-3">
+            <div className="row g-0 steve">
               <div className="col-md-5 product_img">
                 <img
                   src={ele.image.url}
-                  className="img-thumbnail"
+                  className="card-img-top"
                   alt="..."
                 ></img>
               </div>
