@@ -1,12 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { dataContext } from "../functions/Context";
 import { fetchContext } from "../functions/fetchContext";
+import Heart from "./user/Heart";
 
 function Product() {
   //const [state, setState] = useState();
 
    const { state, dispatch } = useContext(fetchContext);
    const { userState, dispatchUserState } = useContext(dataContext);
+
 
   // // const [loading, setLoading] = useState(false);
 
@@ -31,6 +33,8 @@ function Product() {
   //   },
   //   []
   // );
+
+ 
 
   function AddToCart(name, image, price, count) {
     dispatchUserState({
@@ -62,7 +66,10 @@ function Product() {
               <div className="product_title">
                 <h4 className="product_h4"> {ele.name} </h4>
                 <div>
-                  <i className="bi bi-heart" style={{ fontSize: "2rem" }}></i>
+                  {/* <button onClick={handleColorChange} className="product_button_heart"> */}
+                       <Heart/>
+                  {/* </button> */}
+               
                 </div>
               </div>
               <div className="product_img">

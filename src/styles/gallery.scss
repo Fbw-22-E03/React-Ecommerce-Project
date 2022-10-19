@@ -11,8 +11,11 @@
 
     margin-top: 180px;
     margin-bottom: 1rem;
+
+  
    
     &__item {
+        overflow: hidden;
 
         &--1 {
             grid-row: 1 / span 2;
@@ -95,7 +98,15 @@
         height: 100%;
         object-fit: cover;
         display: block;
+
+        transition: all;
+        transition-duration: .3s;
+
     }
 
+    &__img:hover {
+        transform: scale(1.2);
+        
+    }
     
 }

@@ -46,7 +46,7 @@ function ShoppingCart() {
                 {'  '}{userState.cart.length === 0 ? null : userState.cart.length}
               </span>
             </p>
-            <button onClick={removeFromBasket} className="btn btn-outline-dark remove-all" >Remove All</button>
+            <button onClick={removeFromBasket} className="btn btn-outline-dark remove-all rounded-0" >Remove All</button>
           </div>
         </Col>
       </Row>

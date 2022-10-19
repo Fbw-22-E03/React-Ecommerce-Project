@@ -40,7 +40,7 @@ function NavBar() {
         {/* Home Button */}
 
         <Navbar.Brand>
-          <Link className="nav-list-item" to="/">
+          <Link className="nav-list-item " to="/">
             A S K
           </Link>
         </Navbar.Brand>

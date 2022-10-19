@@ -30,8 +30,13 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  transition: all;
+  transition-duration: .3s;
+
   &:hover {
-    background-color: blue;
+    background-color: rgba(0,0,0,.9);
+    color: rgba(0,0,0,.9);
+    transform: scale(1.1);
   }
 
   &_womans_cover {

@@ -11,16 +11,16 @@ function CartCardComponent() {
     return (
       <div className="product_contain cart-items">
         {userState.cart.map((ele) => (
-          <div key={ele.name} className="card mb-3">
-            <div className="row g-0 steve">
-              <div className="col-md-5 product_img">
+          <div key={ele.name} className="card mb-3 rounded-0">
+            <div className="row g-0 rounded-0">
+              <div className="col-md-5 rounded-0">
                 <img
                   src={ele.image.url}
                   className="card-img-top"
                   alt="..."
                 ></img>
               </div>
-              <div className="col-md-5">
+              <div className="col-md-5 rounded-0">
                 <div className="card-body">
                   <h2 className="card-title">{ele.name}</h2>
                   <p
@@ -30,7 +30,7 @@ function CartCardComponent() {
                     Description of Product. Taken from API
                   </p>
                   <p style={{ fontSize: "1.2rem", marginBottom: ".5rem" }}>
-                    Quanity: {ele.count}
+                    Quantity: {ele.count}
                   </p>
                   <div
                     className="card_buttons"
@@ -38,7 +38,7 @@ function CartCardComponent() {
                   >
                     <button
                       type="button"
-                      className="btn btn-plus btn-outline-secondary"
+                      className="btn btn-plus btn-outline-secondary rounded-0"
                       onClick={() =>
                         dispatchUserState({ type: "ADD_TO_CART", payload: ele })
                       }
@@ -47,7 +47,7 @@ function CartCardComponent() {
                     </button>
                     <button
                       type="button"
-                      className="btn btn-plus btn-outline-secondary"
+                      className="btn btn-plus btn-outline-secondary rounded-0"
                       onClick={() =>
                         dispatchUserState({
                           type: "REMOVE_FROM_CART",
@@ -63,7 +63,7 @@ function CartCardComponent() {
                   <button
                   onClick={()=>dispatchUserState({type: "REMOVE_ITEM_FROM_CART", payload: ele})}
                   style={{ fontSize: "1rem", marginTop: "0rem" }} 
-                  type="button" className="btn btn-outline-secondary">
+                  type="button" className="btn btn-outline-secondary rounded-0">
                     Delete Item
                   </button>
                 </div>
