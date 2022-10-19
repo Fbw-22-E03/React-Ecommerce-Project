@@ -5,15 +5,25 @@ import Col from "react-bootstrap/Col";
 import styled from "styled-components";
 
 const FlexContainer = styled.div`
-  display: flex;
+  // display: flex;
+  // flex-direction: column;
+  // align-content: baseline;
+  // margin-top: auto;
+  // border: solid 2px;
+  // min-height: 60vh;
 `;
 const Wrapper = styled.div`
-  width: 100%;
   background: rgba(255, 255, 255, 0.8);
-  align-self: flex-end;
-  margin-top: 2rem;
-  border-top: solid 1px;
-  margin-bottom: -5rem;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: red;
+  min-height: cal(100vh-60px);
+  position: fixed;
+  bottom: 0;
+  // margin-top: 100%;
 `;
 // const Wrapper = styled.div`
 //   // width: 100%;
@@ -28,7 +38,7 @@ const Wrapper = styled.div`
 
 function Footer() {
   return (
-    <FlexContainer>
+    <FlexContainer className="footer">
       {/* <Row className="d-flex justify-content-around"> */}
       <Row className="d-flex">
         <Col className="d-flex justify-content-evenly">
