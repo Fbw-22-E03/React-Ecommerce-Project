@@ -7,10 +7,9 @@ import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 
 const Wrapper = styled.div`
+  margin: 2rem auto;
+  width: auto;
   max-width: 28rem;
-  margin: 0.5rem auto;
-
-  width: 100vw;
   border: solid 1px rgb(0, 0, 0);
   border-radius: 4px;
   background-color: rgba(255, 255, 255);
