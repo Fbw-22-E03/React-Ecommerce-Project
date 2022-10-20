@@ -6,9 +6,8 @@ import Heart from "./user/Heart";
 function Product() {
   //const [state, setState] = useState();
 
-   const { state, dispatch } = useContext(fetchContext);
-   const { userState, dispatchUserState } = useContext(dataContext);
-
+  const { state, dispatch } = useContext(fetchContext);
+  const { userState, dispatchUserState } = useContext(dataContext);
 
   // // const [loading, setLoading] = useState(false);
 
@@ -34,8 +33,6 @@ function Product() {
   //   []
   // );
 
- 
-
   function AddToCart(name, image, price, count) {
     dispatchUserState({
       type: "ADD_TO_CART",
@@ -53,43 +50,44 @@ function Product() {
             <span className="sr-only"></span>
           </div>
         ) : (
-          state.productsMan.filter(ele=>{
-            if(state.searchState === "" ) {
-              return ele
-            } 
-            else {
-              return ele.name.toLowerCase().includes(state.searchState.toLowerCase())
-            }
-          }
-            ).map((ele, index) => (
-            <div key={index} className="card product_card">
-              <div className="product_title">
-                <h4 className="product_h4"> {ele.name} </h4>
-                <div>
-                  {/* <button onClick={handleColorChange} className="product_button_heart"> */}
-                       <Heart/>
-                  {/* </button> */}
-               
+          state.productsMan
+            .filter((ele) => {
+              if (state.searchState === "") {
+                return ele;
+              } else {
+                return ele.name
+                  .toLowerCase()
+                  .includes(state.searchState.toLowerCase());
+              }
+            })
+            .map((ele, index) => (
+              <div key={index} className="card product_card">
+                <div className="product_title">
+                  <h4 className="product_h4"> {ele.name} </h4>
+                  <div>
+                    {/* <button onClick={handleColorChange} className="product_button_heart"> */}
+                    <Heart />
+                    {/* </button> */}
+                  </div>
                 </div>
-              </div>
-              <div className="product_img">
-                <img
-                  className="card-img-top"
-                  src={ele.images[0].url}
-                  alt="Card image cap"
-                />
-              </div>
+                <div className="product_img">
+                  <img
+                    className="card-img-top"
+                    src={ele.images[0].url}
+                    alt="Card image cap"
+                  />
+                </div>
 
-              <div className="card-body product_card_body">
-                <div>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                </div>
-                <div className="product_card_body_price">
-                  <h6 className="card-title">PRICE: {ele.price.value} €</h6>
-               
+                <div className="card-body product_card_body">
+                  <div>
+                    <p className="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                  <div className="product_card_body_price">
+                    <h6 className="card-title">PRICE: {ele.price.value} €</h6>
+
                     <button
                       className="product_card_btn btn btn-outline-light"
                       onClick={() =>
@@ -103,11 +101,10 @@ function Product() {
                     >
                       <i className="bi bi-basket"></i>
                     </button>
-               
+                  </div>
                 </div>
               </div>
-            </div>
-          ))
+            ))
         )}
       </div>
     </div>

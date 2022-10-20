@@ -8,8 +8,14 @@ import Alert from "react-bootstrap/Alert";
 const Wrapper = styled.div`
   max-width: 28rem;
   margin: 2rem auto;
-  width: 100vw;
+
+
   border: solid 1px rgb(0, 0, 0);
+
+
+  width: 80vw;
+  // border: solid 1px rgb(0, 0, 0);
+
   border-radius: 4px;
   background-color: rgba(255, 255, 255);
   box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.2),
