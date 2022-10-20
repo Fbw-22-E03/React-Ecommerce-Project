@@ -6,7 +6,7 @@ import { dataContext } from "../../functions/Context";
 import Alert from "react-bootstrap/Alert";
 
 const Wrapper = styled.div`
-  margin: 2rem auto;
+  margin: 5rem auto;
   width: auto;
   max-width: 28rem;
   border: solid 1px rgb(0, 0, 0);
