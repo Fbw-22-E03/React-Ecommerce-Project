@@ -17,11 +17,13 @@ function Footer() {
   return (
     <div>
       <FlexContainer className="footer">
-        <i className="bi bi-facebook icon-size-footer"></i>
-        <span>help</span>
-        <span>jobs</span>
-        <i className="bi bi-instagram icon-size-footer"></i>
-        <div>
+        <div className="footer_icons d-flex justify-content-between">
+          <i className="bi bi-facebook icon-size-footer"></i>
+          <span>help</span>
+          <span>jobs</span>
+          <i className="bi bi-instagram icon-size-footer"></i>
+        </div>
+        <div className="footer-joke">
           <p>{data && data[0].question}</p>
           <p>{data && data[0].punchline}</p>
         </div>

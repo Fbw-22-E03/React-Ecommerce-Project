@@ -11,8 +11,21 @@ const Wrapper = styled.div`
   margin: 2rem;
   max-width: 50vw;
   margin: auto;
-  border: solid 1px;
+  border: 1px;
   padding: 1.2rem;
+  max-width: 15rem;
+  i {
+    font-size: 8rem;
+    span {
+      font-size: 0.8rem;
+    }
+    p {
+      max-width: 100%;
+      // word-wrap: break-word;
+      break-word: word-wrap;
+      max-width: 200px;
+    }
+  }
 `;
 
 function UserInfo() {
@@ -32,13 +45,13 @@ function UserInfo() {
   };
 
   function toggleForm() {
-    if(formRef.current.style.display === "block") {
+    if (formRef.current.style.display === "block") {
       formRef.current.style.display = "none";
       successPass.current.style.display = "none";
+    } else {
+      formRef.current.style.display = "block";
+      successPass.current.style.display = "none";
     }
-    else {formRef.current.style.display = "block";
-       successPass.current.style.display = "none";
-  }
   }
 
   function handleOnChange(e) {
@@ -52,37 +65,40 @@ function UserInfo() {
     e.preventDefault();
     if (userState.users[0].password === newState.newPassword) {
       newPass.current.style.display = "block";
-      console.log('button')
+      console.log("button");
     } else if (userState.users[0].password !== newState.oldPassword) {
       oldPass.current.style.display = "block";
-    } else if ( newState.newPassword !== newState.confirmPassword) {
+    } else if (newState.newPassword !== newState.confirmPassword) {
       confirmPass.current.style.display = "block";
-    } else if (userState.users[0].password !== newState.newPass &&
+    } else if (
+      userState.users[0].password !== newState.newPass &&
       userState.users[0].password == newState.oldPassword &&
       newState.newPassword === newState.confirmPassword
-      ) {
-        console.log('submit')
-        dispatchUserState({type: "CHANGE_PASSWORD", payload: newState})
-        formRef.current.reset();
-        successPass.current.style.display = "block";
-        newPass.current.style.display = "none";
-        oldPass.current.style.display = "none";
-        confirmPass.current.style.display = "none";
-      }
-    console.log(userState.users[0].password, newState.oldPass)
+    ) {
+      console.log("submit");
+      dispatchUserState({ type: "CHANGE_PASSWORD", payload: newState });
+      formRef.current.reset();
+      successPass.current.style.display = "block";
+      newPass.current.style.display = "none";
+      oldPass.current.style.display = "none";
+      confirmPass.current.style.display = "none";
+    }
+    console.log(userState.users[0].password, newState.oldPass);
   }
   return (
-    <div>
-      <Wrapper>
-        <img
+    <div className="container-fluid">
+      <Wrapper class="row sm-12 md-6 lg-4">
+        {/* <img
           className="img-styles-user-info"
           src="https://s1.reutersmedia.net/resources/r/?m=02&d=20110106&t=2&i=297909111&w=780&fh=&fw=&ll=&pl=&sq=&r=2011-01-06T234808Z_01_BTRE7051U4200_RTROPTP_0_USA"
           alt=""
-        />
-        <p className="email-text-user-info">
+        /> */}
+        <i className="bi bi-person-circle"></i>
+        <span>Change profile photo</span>
+        <p style={{ breakWord: "word-wrap" }} className="email-text-user-info">
           email: {userState.users[0].email}
         </p>
-        <div className="button-container-user-info">
+        <div className="button-container-user-info row sm-12">
           <button
             className="btn btn-outline-dark button-styling-user-info btn-out rounded-0"
             onClick={logOut}
@@ -95,7 +111,10 @@ function UserInfo() {
           >
             Back to home
           </button>
-          <button onClick={toggleForm} className="btn btn-outline-dark button-styling-user-info rounded-0">
+          <button
+            onClick={toggleForm}
+            className="btn btn-outline-dark button-styling-user-info rounded-0"
+          >
             Change password
           </button>
         </div>
@@ -135,14 +154,18 @@ function UserInfo() {
           </p>
           <input type="password" id="confirmPassword" name="confirmPassword" />
           <br />
-          <br/>
+          <br />
           <p
             ref={successPass}
             style={{ fontSize: "12px", color: "green", display: "none" }}
           >
             Change password successfully
           </p>
-          <input type="submit" value="Submit" className="btn btn-outline-dark button-styling-user-info rounded-0"/>
+          <input
+            type="submit"
+            value="Submit"
+            className="btn btn-outline-dark button-styling-user-info rounded-0"
+          />
         </form>
       </Wrapper>
     </div>

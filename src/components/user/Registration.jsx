@@ -8,17 +8,17 @@ import Button from "react-bootstrap/Button";
 
 const Wrapper = styled.div`
   max-width: 28rem;
-  margin: 0.5rem auto;
+  // margin: 0.5rem auto;
 
   width: 100vw;
-  border: solid 1px rgb(0, 0, 0);
+  // border: solid 1px rgb(0, 0, 0);
   border-radius: 4px;
   background-color: rgba(255, 255, 255);
-  box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.2),
-    9px 9px 15px -2px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.2),
+    // 9px 9px 15px -2px rgba(0, 0, 0, 0.1);
 `;
 const Header = styled.h2`
-  margin: 2rem auto 1.8rem;
+  // margin: 2rem auto 1.8rem;
   text-align: center;
   letter-spacing: 4px;
 `;

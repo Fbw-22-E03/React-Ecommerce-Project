@@ -5,4 +5,16 @@
   left: 0;
   padding: 1rem;
   background-color: #efefef;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.footer_icons {
+  display: flex;
+  flex-flow: row wrap;
+}
+.footer-joke {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 1.2rem;
+  gap: 1rem 1rem;
 }
