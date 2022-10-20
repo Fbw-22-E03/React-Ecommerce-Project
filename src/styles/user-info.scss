@@ -1,6 +1,8 @@
 .button-container-user-info {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+
   // border: solid;
   .button-styling-user-info {
     margin: 1.2rem;
@@ -14,5 +16,5 @@
 }
 .email-text-user-info {
   margin: 2rem;
-  border-bottom: solid black 1px;
+  // border-bottom: solid black 1px;
 }
