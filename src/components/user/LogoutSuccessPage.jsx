@@ -26,7 +26,7 @@ function LogoutSuccessPage() {
         <p>You have been logged out</p>
         <p>Thank you</p>
         <button
-          className="over-btn btn btn-light button-styling-user-info"
+          className="login-btn btn btn-outline-dark button-styling-user-info"
           onClick={() => navigate("/")}
         >
           Back to home
