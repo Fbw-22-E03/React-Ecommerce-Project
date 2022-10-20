@@ -26,22 +26,20 @@ function App() {
         <BrowserRouter>
           <div className="container-fluid" style={{ marginTop: "100px" }}>
             <NavBar />
-            <div className="test">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/UserInfo" element={<UserInfo />} />
-                <Route path="/Login" element={<Login />} />
-                <Route path="/Registration" element={<Registration />} />
-                <Route path="/Product" element={<Product />} />
-                <Route path="/ShoppingCart" element={<ShoppingCart />} />
-                <Route
-                  path="/LogoutSuccessPage"
-                  element={<LogoutSuccessPage />}
-                />
-              </Routes>
-            </div>
-            <Footer />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/UserInfo" element={<UserInfo />} />
+              <Route path="/Login" element={<Login />} />
+              <Route path="/Registration" element={<Registration />} />
+              <Route path="/Product" element={<Product />} />
+              <Route path="/ShoppingCart" element={<ShoppingCart />} />
+              <Route
+                path="/LogoutSuccessPage"
+                element={<LogoutSuccessPage />}
+              />
+            </Routes>
           </div>
+          <Footer />
         </BrowserRouter>
       </FetchContext>
     </Context>
