@@ -16,7 +16,7 @@ function CartCardComponent() {
               <div className="col-md-5 rounded-0">
                 <img
                   src={ele.image.url}
-                  className="img-thumbnail rounded-0"
+                  className="card-img-top"
                   alt="..."
                 ></img>
               </div>
