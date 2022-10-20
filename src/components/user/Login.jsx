@@ -1,21 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { dataContext } from "../../functions/Context";
+import Alert from "react-bootstrap/Alert";
 
 const Wrapper = styled.div`
-  max-width: 900px;
-  margin: auto;
-  with: 100vw;
+  margin: 2rem auto;
+  width: auto;
+  max-width: 28rem;
+  border: solid 1px rgb(0, 0, 0);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255);
+  box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.2),
+    9px 9px 15px -2px rgba(0, 0, 0, 0.1);
+}
 `;
 const Header = styled.h2`
-  margin: 2rem;
+  margin: 2rem auto 3rem;
+  text-align: center;
+  letter-spacing: 4px;
 `;
+
 function Login() {
-  const { state, dispatch } = useContext(dataContext);
+  const { userState, dispatchUserState } = useContext(dataContext);
   const [userInfo, setUserInfo] = useState();
   const navigate = useNavigate();
+  let show = useRef();
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -24,20 +35,32 @@ function Login() {
 
   function submitData(e) {
     e.preventDefault();
-    for (let user of state.users) {
+    for (let user of userState.users) {
       if (
         user.email === userInfo.email &&
         user.password === userInfo.password
       ) {
-        dispatch({ type: "IS_LOGIN", payload: userInfo });
-        navigate("/home");
+        dispatchUserState({ type: "IS_LOGIN", payload: userInfo });
+        navigate("/");
+      } else {
+        show.current.style.display = "block";
       }
     }
   }
 
   return (
     <Wrapper>
-      <Header>Login</Header>
+      <Alert
+        ref={show}
+        style={{ display: "none" }}
+        variant="danger"
+        onClose={() => (show.current.style.display = "none")}
+        dismissible
+      >
+        {/* <Alert.Heading>Whoops</Alert.Heading> */}
+        <p>Incorrect email or password</p>
+      </Alert>
+      <Header>LOGIN</Header>
       <form onSubmit={submitData} onChange={handleChange}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -50,11 +73,13 @@ function Login() {
           <label className="form-label">Password</label>
           <input type="password" name="password" className="form-control" />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="login-btn btn btn-outline-dark">
           Log in
         </button>
       </form>
-      <Link to="/Registration">Not register yet? Click here.</Link>
+      <Link className="login-link" to="/Registration">
+        Not registered yet? Click here.
+      </Link>
     </Wrapper>
   );
 }

@@ -14,18 +14,34 @@ const initialValue = {
     },
   ],
   cart: [],
+  isLoading: true,
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case "SUBMIT_USER":
-      return { ...state, users: [...state.users, action.payload] };
+      return { ...state, users: [action.payload] };
+      case "CHANGE_PASSWORD":
+        return { ...state, users:state.users.map((ele) => {
+          if (ele.password === action.payload.oldPassword ) return { ...ele, password: action.payload.newPassword, passwordTwo: action.payload.newPassword };
+          else return ele;
+        }), };
     case "IS_LOGIN":
       return {
         ...state,
         users: state.users.map((ele) => {
           if (ele.email === action.payload.email)
             return { ...ele, isLogin: true };
+          else return ele;
+        }),
+      };
+    case "IS_LOADING":
+      return { ...state, isLoading: false };
+    case "IS_LOGOUT":
+      return {
+        ...state,
+        users: state.users.map((ele) => {
+          if (ele.isLogin) return { ...ele, isLogin: false };
           else return ele;
         }),
       };
@@ -49,10 +65,22 @@ function reducer(state, action) {
         ...state,
         cart: state.cart.map((ele) => {
           if (ele.name === action.payload.name)
-            return { ...ele, count: ele.count===0 ? ele.count : ele.count -1 };
+            return {
+              ...ele,
+              count: ele.count === 0 ? ele.count : ele.count - 1,
+            };
           else return ele;
         }),
       };
+      case "REMOVE_ITEM_FROM_CART":
+      return {
+        ...state,
+        cart: state.cart.filter((product) => action.payload !== product)
+      }
+      case "REMOVE_ALL_FROM_CART":
+      return {
+        ...state,
+        cart: [] };
     default:
       return state;
   }

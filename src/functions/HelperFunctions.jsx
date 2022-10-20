@@ -11,7 +11,7 @@ const handleChange = (event) => {
 
 // filter searched items
 export const filterItems = items.filter((item) => {
-  return item.title.toLowerCase().includes(items);
+  return item.title.toLowerCase().includes(item);
 });
 
 // search button onClick render filtered items

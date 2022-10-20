@@ -1,20 +1,31 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { dataContext } from "../../functions/Context";
 import { useNavigate } from "react-router-dom";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
 
 const Wrapper = styled.div`
-  margin: 3rem;
-  max-width: 900px;
+  margin: 2rem auto;
+  width: auto;
+  max-width: 28rem;
+  border: solid 1px rgb(0, 0, 0);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255);
+  box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.2),
+  9px 9px 15px -2px rgba(0, 0, 0, 0.1);
 `;
 const Header = styled.h2`
-  margin: 2rem;
+  // margin: 2rem auto 1.8rem;
+  text-align: center;
+  letter-spacing: 4px;
 `;
 function Registration() {
-  const { dispatch } = useContext(dataContext);
+  const { dispatchUserState } = useContext(dataContext);
 
   const navigate = useNavigate();
+  let show = useRef();
 
   const [userInfo, setUserInfo] = useState({
     email: "",
@@ -32,13 +43,29 @@ function Registration() {
 
   function submitData(e) {
     e.preventDefault();
-    dispatch({ type: "SUBMIT_USER", payload: userInfo });
-    navigate("/login");
+    if (userInfo.password === userInfo.passwordTwo) {
+      e.preventDefault();
+      dispatchUserState({ type: "SUBMIT_USER", payload: userInfo });
+      show.current.style.display = "none";
+      navigate("/Login");
+    } else {
+      show.current.style.display = "block";
+    }
   }
 
   return (
     <Wrapper>
-      <Header>Register</Header>
+      <Alert
+        ref={show}
+        style={{ display: "none" }}
+        variant="danger"
+        onClose={() => (show.current.style.display = "none")}
+        dismissible
+      >
+        <Alert.Heading>Whoops</Alert.Heading>
+        <p>Looks like your passwords don't match</p>
+      </Alert>
+      <Header>REGISTER</Header>
       <form onSubmit={submitData} onChange={handleChange}>
         <div className="mb-3">
           <label className="form-label">Email</label>
@@ -95,7 +122,11 @@ function Registration() {
           />
           <label className="form-check-label">Register for newsletter</label>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button
+          style={{ display: "block" }}
+          type="submit"
+          className="login-btn btn btn-outline-dark"
+        >
           Submit
         </button>
       </form>

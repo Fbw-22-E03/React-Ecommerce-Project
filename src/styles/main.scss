@@ -4,4 +4,66 @@
 @import "coverPhoto.scss";
 @import "cardComponent.scss";
 @import "nav-bar.scss";
+@import "footer.scss";
 @import "registration-login.scss";
+@import "shopping-cart.scss";
+@import "user-info.scss";
+@import "home.scss";
+@import "gallery.scss";
+@import "shopping-cart.scss";
+@import "user-info.scss";
+@import "chooseCollection.scss";
+
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100%;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  position: relative;
+  margin: 0;
+  padding-bottom: 5rem;
+}
+
+body::after {
+  content: "";
+  margin: 0;
+  // display: block;
+  // height: 50px; /* Set same as footer's height */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+

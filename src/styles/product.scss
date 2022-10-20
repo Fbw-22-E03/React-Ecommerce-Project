@@ -7,61 +7,82 @@
   gap: 5px;
 }
 
-.product {
-  &_card {
-    max-width: 300px;
-    height: auto;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 5px;
-  }
+.product_card {
+  max-width: 21rem;
+  height: auto;
+  border: 1px solid rgb(178, 178, 178);
+  border-radius: 0px;
+  padding: 5px;
+  box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.3),
+    9px 9px 15px -2px rgba(0, 0, 0, 0.2);
+  margin: 1rem auto;
+}
 
-  &_title {
-    width: 90%;
-    margin: 5px auto;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-  }
+.product_title {
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.product_h4 {
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.8);
+}
 
-  &_img {
-    border: inherit;
-    border-radius: inherit;
-    max-width: 90% img {
-      max-width: 40%;
-      height: 50%;
-    }
-  }
+.product_img {
+  border: 1px solid rgb(178, 178, 178);
+  border-radius: 0px;
+  width: 18rem;
+  height: 60%;
+  margin: -0.5rem auto;
+}
+.card-img-top {
+  max-width: 70%;
+  height: 90%;
+  border: 1px solid rgb(178, 178, 178);
+  border-radius: 0;
+  margin:1rem 3rem;
+}
 
-  &_card_body {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    gap: 10px;
+.card_body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  gap: 5px;
+  font-size: 0.8rem;
+  
+}
 
-    &_price {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      align-items: center;
-    }
+.product_card_body_price {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    &_button {
-      outline: none;
-      border: none;
-      background-color: inherit;
-
-    }
-  }
+.product_card_btn {
+  border-radius: 0px;
+  border:0;
 }
 
 .bi-basket {
   color: black;
   font-size: 2.5rem;
+  border: none;
 
   &:hover {
-    color: red;
+    color: rgb(127, 127, 127);
   }
 }
 
+.product_button_heart{
+  border: none;
+  background: inherit;
+  background-color: inherit;
+}
+
+.icon_heart_color{
+  color: red;
+}

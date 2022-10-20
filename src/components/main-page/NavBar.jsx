@@ -7,69 +7,146 @@ import Form from "react-bootstrap/Form";
 import Dropdown from "react-bootstrap/Dropdown";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, useNavigate } from "react-router-dom";
+import { dataContext } from "../../functions/Context";
+import { fetchContext } from "../../functions/fetchContext";
+import { BiMenuAltLeft } from "../../../node_modules/react-icons/bi";
 
 
 function NavBar() {
-  return (
-    <Navbar bg="light" expand="lg">
-      <Container fluid>
-        <Navbar.Toggle aria-controls="navbarScroll" />
+  const { userState, dispatchUserState } = React.useContext(dataContext);
+  const basketRef = React.useRef();
+  const searchRef = React.useRef("");
 
+  // state for keeping track of searching value
+  const [searchState, setSearchState] = React.useState("");
+  const { state, dispatch } = React.useContext(fetchContext);
+
+  const navigate = useNavigate();
+  // put search value to a state to send it to
+  // Context and
+  // Product component
+  React.useEffect(() => {
+    dispatch({ type: "SET_SEARCH_STATE", payload: searchState });
+  }, [searchRef.current.value]);
+
+  const logOut = () => {
+    dispatchUserState({ type: "IS_LOGOUT" });
+    navigate("/");
+  };
+
+  return (
+    <Navbar fixed="top" bg="light" expand="lg">
+      <Container fluid>
+        <Navbar.Toggle aria-controls="navbarScroll">
+          <p>
+            <BiMenuAltLeft />
+          </p>
+        </Navbar.Toggle>
         {/* Home Button */}
 
         <Navbar.Brand>
-          <Link className="nav-list-item" to="/">
-            H & M
+          <Link className="nav-list-item " to="/">
+            A S K
           </Link>
         </Navbar.Brand>
         <div className="d-flex">
           {/* Products Dropdown */}
 
           <DropdownButton
+            style={{ borderRadius: "0" }}
             className="drop-down-button"
             id="dropdown-basic-button"
             variant="light"
             size="md"
             title="Products"
           >
-            <Dropdown.Item>
-              <Link className="nav-list-item" to="/Product">
-                Men's
-              </Link>
+            <Dropdown.Item
+              className="dd-btn"
+              onClick={() => navigate("/Product")}
+            >
+              Men's
             </Dropdown.Item>
-            <Dropdown.Item>
-              <Link className="nav-list-item" to="/Product">
-                Women's
-              </Link>
+            <Dropdown.Item
+              className="dd-btn"
+              onClick={() => navigate("/Product")}
+            >
+              Women's
             </Dropdown.Item>
-            <Dropdown.Item>
-              <Link className="nav-list-item" to="/Product">
-                Children's
-              </Link>
+            <Dropdown.Item
+              className="dd-btn"
+              onClick={() => navigate("/Product")}
+            >
+              Children's
             </Dropdown.Item>
           </DropdownButton>
 
           {/* User Account */}
 
-          <Button variant="light" size="lg">
-            <Link className="nav-list-item" to="/Registration">
-              <i className="bi bi-person"></i>
-            </Link>
-          </Button>
+          {userState.users[0].isLogin ? (
+            <DropdownButton
+              style={{ borderRadius: "0" }}
+              className="drop-down-button"
+              id="dropdown-basic-button"
+              variant="light"
+              size="lg"
+              title={<i className="bi bi-person-check-fill"></i>}
+            >
+              <Dropdown.Item
+                className="dd-btn"
+                onClick={() => navigate("/userinfo")}
+              >
+                Your Account
+              </Dropdown.Item>
+              <Dropdown.Item onClick={logOut}>Log Out</Dropdown.Item>
+            </DropdownButton>
+          ) : (
+            <DropdownButton
+              className="drop-down-button"
+              id="dropdown-basic-button"
+              variant="light"
+              size="lg"
+              title={<i className="bi bi-person"></i>}
+            >
+              <Dropdown.Item
+                className="dd-btn"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </Dropdown.Item>
+              <Dropdown.Item
+                className="dd-btn"
+                onClick={() => navigate("/registration")}
+              >
+                Register
+              </Dropdown.Item>
+            </DropdownButton>
+          )}
 
           {/* Shopping Cart */}
-
-          <Button variant="light">
-            <Link className="nav-list-item" to="/ShoppingCart">
+          <Link className="nav-list-item" to="/ShoppingCart">
+            <Button
+              class="shopping_button"
+              variant="btn-outline-light rounded-0"
+            >
               <i className="bi bi-basket basket-icon-nav-bar"></i>
-            </Link>
-          </Button>
+              <span
+                ref={basketRef}
+                className={
+                  userState.cart.length !== 0
+                    ? "amount_of_products_in_basket "
+                    : ""
+                }
+              >
+                {userState.cart.length === 0 ? null : userState.cart.length}
+              </span>
+            </Button>
+          </Link>
         </div>
 
         {/* Search Bar */}
 
-        <Navbar.Collapse id="navbarScroll">
+        <Navbar.Collapse className="hamburger">
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
@@ -81,8 +158,10 @@ function NavBar() {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              ref={searchRef}
+              onChange={(e) => setSearchState(e.target.value)}
             />
-            <Button variant="light">
+            <Button onClick={() => navigate("/Product")} variant="light">
               <i className="bi bi-search"></i>
             </Button>
           </Form>

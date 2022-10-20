@@ -2,5 +2,9 @@
     display: flex;
     flex-flow: row nowrap;
     gap: 5px;
+
+    button {
+        border-radius: none;
+    }
     
 }

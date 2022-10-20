@@ -1,0 +1,28 @@
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.footer_icons {
+  display: flex;
+  flex-flow: row wrap;
+}
+.footer-joke {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: .5rem;
+  gap: 5px;
+}
+@media screen and ( max-width: 600px){
+  .footer-joke {
+    flex-flow: column nowrap;
+    gap: 5px;
+  }
+};
+  
+

@@ -3,13 +3,16 @@ import React, { createContext, useReducer } from "react";
 export const fetchContext = createContext();
 
 const initialValue = {
-  products: [],
+  productsMan: [],
+  searchState: ""
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case "FETCH_PRODUCTS":
-      return { products: action.payload };
+    case "FETCH_PRODUCTS_MAN":
+      return { ...state, productsMan: action.payload };
+    case "SET_SEARCH_STATE":
+        return { ...state, searchState: action.payload};
     default:
       return state;
   }
