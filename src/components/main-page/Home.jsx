@@ -6,18 +6,17 @@ import { fetchContext } from "../../functions/fetchContext";
 import { dataContext } from "../../functions/Context";
 
 function Home() {
-
   const { state, dispatch } = useContext(fetchContext);
   const { userState, dispatchUserState } = useContext(dataContext);
 
   // const [loading, setLoading] = useState(false);
 
   const options = {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'X-RapidAPI-Key': '9c06ce0591mshe2fa3397a824a68p1a4f6cjsn4f6f24e928d9',
-      'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com'
-    }
+      "X-RapidAPI-Key": "9c06ce0591mshe2fa3397a824a68p1a4f6cjsn4f6f24e928d9",
+      "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
+    },
   };
 
   useEffect(
@@ -28,15 +27,14 @@ function Home() {
       );
       const data = await res.json();
       dispatch({ type: "FETCH_PRODUCTS_MAN", payload: data.results });
-      dispatchUserState({type:"IS_LOADING"});
+      dispatchUserState({ type: "IS_LOADING" });
     },
     []
   );
 
-
   return (
     <div>
-      <CoverPhoto style={{ marginBottom: "50px" }} />
+      <CoverPhoto style={{ marginTop: "5rem", marginBottom: "50px" }} />
       <ChooseCollection />
       <Gallery />
     </div>
