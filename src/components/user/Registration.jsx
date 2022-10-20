@@ -14,10 +14,10 @@ const Wrapper = styled.div`
   border-radius: 4px;
   background-color: rgba(255, 255, 255);
   box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.2),
-    9px 9px 15px -2px rgba(0, 0, 0, 0.1);
+  9px 9px 15px -2px rgba(0, 0, 0, 0.1);
 `;
 const Header = styled.h2`
-  margin: 2rem auto 1.8rem;
+  // margin: 2rem auto 1.8rem;
   text-align: center;
   letter-spacing: 4px;
 `;

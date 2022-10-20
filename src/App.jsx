@@ -1,7 +1,13 @@
 import { useState } from "react";
 import "./styles/main.scss";
 import styled from "styled-components";
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  HashRouter,
+  Route,
+  Link,
+  Routes,
+} from "react-router-dom";
 import ProductsPaginate from "./components/ProductsPaginate";
 import Registration from "./components/user/Registration";
 import Login from "./components/user/Login";
@@ -23,9 +29,10 @@ function App() {
   return (
     <Context>
       <FetchContext>
-        <BrowserRouter>
-          <div className="container-fluid" style={{ marginTop: "100px" }}>
+        <HashRouter>
+          
             <NavBar />
+            <div className="container-fluid" style={{ margin: "20px auto"}}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/UserInfo" element={<UserInfo />} />
@@ -40,7 +47,7 @@ function App() {
             </Routes>
           </div>
           <Footer />
-        </BrowserRouter>
+        </HashRouter>
       </FetchContext>
     </Context>
   );
