@@ -1,38 +1,32 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import React, { useEffect, useState } from "react";
+
 import styled from "styled-components";
 
-const FlexContainer = styled.div`
-  display: flex;
-`;
-
-
 function Footer() {
+  const [data, fetchData] = useState("");
+  useEffect(() => {
+    fetch("https://backend-omega-seven.vercel.app/api/getjoke")
+      .then((response) => response.json())
+      .then((data) => fetchData(data));
+  }, []);
+  console.log(data);
+  const FlexContainer = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+  `;
   return (
-    <FlexContainer className="footer">
-      {/* <Row className="d-flex justify-content-around"> */}
-      <Row className="d-flex">
-        <Col className="d-flex justify-content-evenly">
-          <i className="bi bi-youtube icon-size-footer"></i>
-          <i className="bi bi-twitter icon-size-footer"></i>
-        </Col>
-        <Col>About</Col>
-        <Col>Gift cards</Col>
-        <Col>Help</Col>
-      </Row>
-      <Row className="d-flex">
-        <Col className="d-flex justify-content-evenly">
-          <i className="bi bi-facebook icon-size-footer"></i>
-          <i className="bi bi-instagram icon-size-footer"></i>
-        </Col>
-        <Col>Help</Col>
-        <Col>Stores</Col>
-        <Col>Jobs</Col>
-      </Row>
-      {/* </Row> */}
-    </FlexContainer>
+    <div>
+      <FlexContainer className="footer">
+        <i className="bi bi-facebook icon-size-footer"></i>
+        <span>help</span>
+        <span>jobs</span>
+        <i className="bi bi-instagram icon-size-footer"></i>
+        <div>
+          <p>{data && data[0].question}</p>
+          <p>{data && data[0].punchline}</p>
+        </div>
+      </FlexContainer>
+    </div>
   );
 }
 
