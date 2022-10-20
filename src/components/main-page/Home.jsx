@@ -15,7 +15,7 @@ function Home() {
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': 'f598709df1msh814c5a1fb3c3a89p1e8989jsne8da2617eff4',
+      'X-RapidAPI-Key': '9c06ce0591mshe2fa3397a824a68p1a4f6cjsn4f6f24e928d9',
       'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com'
     }
   };
