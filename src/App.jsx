@@ -30,8 +30,9 @@ function App() {
     <Context>
       <FetchContext>
         <HashRouter>
-          <div className="container-fluid" style={{ marginTop: "100px" }}>
+          
             <NavBar />
+            <div className="container-fluid" style={{ margin: "20px auto"}}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/UserInfo" element={<UserInfo />} />

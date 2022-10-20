@@ -14,7 +14,15 @@
 }
 .footer-joke {
   display: flex;
-  flex-flow: column nowrap;
-  margin-top: 1.2rem;
-  gap: 1rem 1rem;
+  flex-flow: row nowrap;
+  margin-top: .5rem;
+  gap: 5px;
 }
+@media screen and ( max-width: 600px){
+  .footer-joke {
+    flex-flow: column nowrap;
+    gap: 5px;
+  }
+};
+  
+
