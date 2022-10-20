@@ -5,12 +5,21 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 2rem auto;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  width: auto;
+  max-width: 28rem;
+  border: solid 1px rgb(0, 0, 0);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255);
+  box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.2),
+    9px 9px 15px -2px rgba(0, 0, 0, 0.1);
   i {
     font-size: 3rem;
     color: green;
   }
   p {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   button {
     margin: 2rem;
@@ -26,7 +35,7 @@ function LogoutSuccessPage() {
         <p>You have been logged out</p>
         <p>Thank you</p>
         <button
-          className="over-btn btn btn-light button-styling-user-info"
+          className="login-btn btn btn-outline-dark button-styling-user-info"
           onClick={() => navigate("/")}
         >
           Back to home
