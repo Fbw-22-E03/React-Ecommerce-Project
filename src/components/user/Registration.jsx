@@ -7,7 +7,7 @@ import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 
 const Wrapper = styled.div`
-  margin: 2rem auto;
+  margin: 5rem auto;
   width: auto;
   max-width: 28rem;
   border: solid 1px rgb(0, 0, 0);
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   9px 9px 15px -2px rgba(0, 0, 0, 0.1);
 `;
 const Header = styled.h2`
-  // margin: 2rem auto 1.8rem;
+  margin: 2rem auto 1.8rem;
   text-align: center;
   letter-spacing: 4px;
 `;

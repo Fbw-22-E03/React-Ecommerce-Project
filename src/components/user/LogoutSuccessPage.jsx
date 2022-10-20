@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem auto;
+  margin: 5rem auto;
   padding: 2.5rem 1.5rem 1.5rem 1.5rem;
   width: auto;
   max-width: 28rem;
