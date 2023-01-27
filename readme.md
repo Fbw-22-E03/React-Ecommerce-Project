@@ -12,7 +12,7 @@ here](https://rapidapi.com/apidojo/api/hm-hennes-mauritz)).
 Focus on using and practice React.Working with
 hooks and WebAPI.
 
-Authors: Lee, Aaron, Sunny and Kamil.
+Authors: Lee, Aaron, Sunny, Ivo and Kamil.
 
 Course name: Web Development
 
